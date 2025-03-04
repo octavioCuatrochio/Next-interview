@@ -117,6 +117,20 @@ export default function JoySignInSideTemplate() {
                     }}
                   >
                   </Box>
+                  <Button formAction={login} type="submit" fullWidth>
+                    Log in
+                  </Button>
+
+                  <Divider
+                    sx={(theme) => ({
+                      [theme.getColorSchemeSelector('light')]: {
+                        color: { xs: '#FFF', md: 'text.tertiary' },
+                      },
+                    })}
+                  >
+                    or
+                  </Divider>
+
                   <Button formAction={signup} type="submit" fullWidth>
                     Sign in
                   </Button>

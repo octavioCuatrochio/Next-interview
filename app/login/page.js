@@ -35,7 +35,7 @@ import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
 
 
-const customTheme = extendTheme({ defaultColorScheme: 'dark' });
+const customTheme = extendTheme({ defaultMode: 'dark' });
 
 export default function JoySignInSideTemplate() {
   return (

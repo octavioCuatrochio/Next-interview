@@ -2,7 +2,8 @@ import * as React from 'react';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
 import Container from '@mui/joy/Container';
-import { typographyClasses } from '@mui/joy/Typography';
+import Typography, { typographyClasses } from '@mui/joy/Typography';
+import Link from '@mui/joy/Link';
 
 export default function TwoSidedLayout({
   children,
@@ -16,6 +17,7 @@ export default function TwoSidedLayout({
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
+          bgcolor: 'white',
           py: 10,
           gap: 4,
           [theme.breakpoints.up(834)]: {
@@ -49,11 +51,14 @@ export default function TwoSidedLayout({
         })}
       >
         {children}
+        <Typography>
+          Want to check if you are logged in? <Link href="/private" sx={{ fontWeight: 'lg' }}>go to /private</Link>
+        </Typography>
       </Box>
       <AspectRatio
         ratio={600 / 520}
         variant="outlined"
-        maxHeight={300}
+        maxHeight={900}
         sx={(theme) => ({
           minWidth: 300,
           alignSelf: 'stretch',

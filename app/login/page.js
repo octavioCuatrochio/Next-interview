@@ -100,12 +100,12 @@ export default function JoySignInSideTemplate() {
             <Stack sx={{ gap: 4, mt: 2 }}>
               <form>
                 <FormControl required>
-                  <FormLabel sx={{ color: '#FFF' }}>Email</FormLabel>
+                  <FormLabel sx={{ color: '#000' }}>Email</FormLabel>
                   <Input id="email" type="email" name="email" required color="neutral"
                   />
                 </FormControl>
                 <FormControl required>
-                  <FormLabel sx={{ color: '#FFF' }}>Password</FormLabel>
+                  <FormLabel sx={{ color: '#000' }}>Password</FormLabel>
                   <Input id="password" type="password" name="password" required color="neutral" />
                 </FormControl>
                 <Stack sx={{ gap: 4, mt: 2 }}>

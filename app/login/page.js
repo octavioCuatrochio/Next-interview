@@ -1,20 +1,5 @@
 "use client"
 import { login, signup } from './actions'
-
-// export default function LoginPage() {
-//   return (
-//     <form>
-//       <label htmlFor="email">Email:</label>
-//       <input id="email" name="email" type="email" required />
-//       <label htmlFor="password">Password:</label>
-//       <input id="password" name="password" type="password" required />
-//       <button formAction={login}>Log in</button>
-//       <button formAction={signup}>Sign up</button>
-//     </form>
-//   )
-// }
-
-
 import * as React from 'react';
 import { CssVarsProvider, extendTheme, useColorScheme } from '@mui/joy/styles';
 import GlobalStyles from '@mui/joy/GlobalStyles';
@@ -38,6 +23,20 @@ import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
 const customTheme = extendTheme({ defaultMode: 'dark' });
 
 export default function JoySignInSideTemplate() {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  async function handleSignup(formData) {
+    setIsSubmitting(true);
+    signup(formData);
+  }
+
+  async function handleLogin(formData) {
+    setIsSubmitting(true);
+    login(formData);
+  }
+
+
+
   return (
     <CssVarsProvider theme={customTheme} disableTransitionOnChange>
       <CssBaseline />
@@ -98,7 +97,7 @@ export default function JoySignInSideTemplate() {
             }}
           >
             <Stack sx={{ gap: 4, mt: 2 }}>
-              <form>
+              <form onSubmit={(e) => { e.preventDefault(); handleSignup(new FormData(e.target)); }}>
                 <FormControl required>
                   <FormLabel sx={{ color: '#000' }}>Email</FormLabel>
                   <Input id="email" type="email" name="email" required color="neutral"
@@ -117,7 +116,7 @@ export default function JoySignInSideTemplate() {
                     }}
                   >
                   </Box>
-                  <Button formAction={login} type="submit" fullWidth>
+                  <Button formAction={handleLogin} type="submit" fullWidth disabled={isSubmitting}>
                     Log in
                   </Button>
 
@@ -131,7 +130,7 @@ export default function JoySignInSideTemplate() {
                     or
                   </Divider>
 
-                  <Button formAction={signup} type="submit" fullWidth>
+                  <Button formAction={handleSignup} type="submit" fullWidth disabled={isSubmitting}>
                     Sign in
                   </Button>
                 </Stack>
